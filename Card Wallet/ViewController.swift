@@ -16,13 +16,16 @@ class ViewController: UIViewController {
     var snap: UISnapBehavior!
     var animator: UIDynamicAnimator!
 
+    @IBOutlet weak var card: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(imageTapped))
         
-        for card in Cards! {
+        for card in Cards {
+            let tapGesture = UITapGestureRecognizer(target: self, action:#selector(imageTapped))
             card.addGestureRecognizer(tapGesture)
             card.isUserInteractionEnabled = true
         }
@@ -30,8 +33,6 @@ class ViewController: UIViewController {
         animator = UIDynamicAnimator(referenceView: self.view)
         
         self.view.layoutIfNeeded()
-        
-        
     }
     
     func imageTapped(gesture: UIGestureRecognizer) {
