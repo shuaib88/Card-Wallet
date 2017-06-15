@@ -41,7 +41,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="card" destination="dr0-zg-ucW" id="LzW-wZ-b4f"/>
                         <outletCollection property="Cards" destination="yan-mK-lsz" collectionClass="NSMutableArray" id="E6I-OC-dEM"/>
                         <outletCollection property="Cards" destination="dr0-zg-ucW" collectionClass="NSMutableArray" id="Cj2-V7-gDV"/>
                     </connections>
