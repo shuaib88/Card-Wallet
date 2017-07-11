@@ -54,6 +54,8 @@
 		980CA3441EF083E600DE201B /* Card Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				98616B071EF35FA300094B38 /* Controllers */,
+				98616B061EF35F8E00094B38 /* Views */,
 				980CA3451EF083E600DE201B /* AppDelegate.swift */,
 				980CA3471EF083E600DE201B /* ViewController.swift */,
 				980CA3491EF083E600DE201B /* Main.storyboard */,
@@ -62,6 +64,20 @@
 				980CA3511EF083E600DE201B /* Info.plist */,
 			);
 			path = "Card Wallet";
+			sourceTree = "<group>";
+		};
+		98616B061EF35F8E00094B38 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		98616B071EF35FA300094B38 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,6 +315,7 @@
 				980CA3561EF083E600DE201B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

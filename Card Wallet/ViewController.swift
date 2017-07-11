@@ -15,8 +15,9 @@ class ViewController: UIViewController {
     @IBOutlet var Cards: [UIImageView]!
     
     var snap: UISnapBehavior!
-    var animator: UIDynamicAnimator!
     var push: UIPushBehavior!
+    var animator: UIDynamicAnimator!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,13 +27,18 @@ class ViewController: UIViewController {
         animator = UIDynamicAnimator(referenceView: self.view)
         
         self.view.layoutIfNeeded()
-        
+    
         // added gesture recognizers
         for card in Cards {
             
             // tap behaviors
-            let tapGesture = UITapGestureRecognizer(target: self, action:#selector(imageTapped))
-            card.addGestureRecognizer(tapGesture)
+//            let tapGesture = UITapGestureRecognizer(target: self, action:#selector(imageTapped))
+//            card.addGestureRecognizer(tapGesture)
+//            card.isUserInteractionEnabled = true
+            
+            // pan gesture
+            let panGesture = UIPanGestureRecognizer(target: self, action: #selector(cardDragged))
+            card.addGestureRecognizer(panGesture)
             card.isUserInteractionEnabled = true
             
             var origPos = card.center
@@ -49,10 +55,30 @@ class ViewController: UIViewController {
     
     func imageTapped(gesture: UIGestureRecognizer) {
         if let imageView = gesture.view as? UIImageView {
-            print("Image Tapped")
+//            print("Image Tapped")
         }
     }
     
+    func cardDragged(gesture: UIPanGestureRecognizer) {
+        if let cardView = gesture.view as? UIImageView {
+            print("Image dragged")
+        }
+    }
+    /**
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touchesBegan")
+    }
+ **/
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touchesEnded")
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("touchesCancelled")
+    }
+    
+    /**
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch in touches {
             animator.removeAllBehaviors()
@@ -75,6 +101,8 @@ class ViewController: UIViewController {
 
         }
     }
+ 
+ **/
  
     /**
     
