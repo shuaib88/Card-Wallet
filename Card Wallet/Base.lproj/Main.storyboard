@@ -40,10 +40,6 @@
                             <constraint firstItem="dr0-zg-ucW" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.5" id="vb5-5a-WVt"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outletCollection property="Cards" destination="yan-mK-lsz" collectionClass="NSMutableArray" id="E6I-OC-dEM"/>
-                        <outletCollection property="Cards" destination="dr0-zg-ucW" collectionClass="NSMutableArray" id="Cj2-V7-gDV"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
