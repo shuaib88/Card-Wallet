@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		980CA3461EF083E600DE201B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980CA3451EF083E600DE201B /* AppDelegate.swift */; };
 		980CA3481EF083E600DE201B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980CA3471EF083E600DE201B /* ViewController.swift */; };
-		980CA34B1EF083E600DE201B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980CA3491EF083E600DE201B /* Main.storyboard */; };
 		980CA34D1EF083E600DE201B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 980CA34C1EF083E600DE201B /* Assets.xcassets */; };
 		980CA3501EF083E600DE201B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 980CA34E1EF083E600DE201B /* LaunchScreen.storyboard */; };
 		98775DBD1F203E2E0030BFCD /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98775DBC1F203E2E0030BFCD /* Card.swift */; };
@@ -19,7 +18,6 @@
 		980CA3421EF083E600DE201B /* Card Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Card Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		980CA3451EF083E600DE201B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		980CA3471EF083E600DE201B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		980CA34A1EF083E600DE201B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		980CA34C1EF083E600DE201B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		980CA34F1EF083E600DE201B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		980CA3511EF083E600DE201B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -59,7 +57,6 @@
 				98616B071EF35FA300094B38 /* Controllers */,
 				98616B061EF35F8E00094B38 /* Views */,
 				980CA3451EF083E600DE201B /* AppDelegate.swift */,
-				980CA3491EF083E600DE201B /* Main.storyboard */,
 				980CA34C1EF083E600DE201B /* Assets.xcassets */,
 				980CA34E1EF083E600DE201B /* LaunchScreen.storyboard */,
 				980CA3511EF083E600DE201B /* Info.plist */,
@@ -144,7 +141,6 @@
 			files = (
 				980CA3501EF083E600DE201B /* LaunchScreen.storyboard in Resources */,
 				980CA34D1EF083E600DE201B /* Assets.xcassets in Resources */,
-				980CA34B1EF083E600DE201B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,14 +160,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		980CA3491EF083E600DE201B /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				980CA34A1EF083E600DE201B /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		980CA34E1EF083E600DE201B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

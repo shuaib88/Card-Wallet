@@ -12,43 +12,48 @@ import UIKit
 class ViewController: UIViewController {
     
     
-    @IBOutlet var Cards: [UIImageView]!
+    var cards: [Card]!
     
     var snap: UISnapBehavior!
     var push: UIPushBehavior!
     var animator: UIDynamicAnimator!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        
         animator = UIDynamicAnimator(referenceView: self.view)
         
         self.view.layoutIfNeeded()
     
         // added gesture recognizers
-        for card in Cards {
-            
+//        for card_object in cards! {
+//            let card = card_object.front_image
+//            
+        
             // tap behaviors
 //            let tapGesture = UITapGestureRecognizer(target: self, action:#selector(imageTapped))
 //            card.addGestureRecognizer(tapGesture)
 //            card.isUserInteractionEnabled = true
-            
-            // pan gesture
-            let panGesture = UIPanGestureRecognizer(target: self, action: #selector(cardDragged))
-            card.addGestureRecognizer(panGesture)
-            card.isUserInteractionEnabled = true
-            
-            var origPos = card.center
-            card.center = CGPoint(x: self.view.frame.width / 2, y: -card.frame.height)
-            
-            snap = UISnapBehavior(item: card, snapTo: origPos)
-            snap.damping = 0.3
-            animator.addBehavior(snap)
-            
-        }
+        
+        let card_image = UIImage(named: "credit_card_blue")
+//        let card_image = UIImage(named: "#imageLiteral(resourceName: \"credit_card_green\")")
+        let card = UIImageView(image: card_image)
+        card.frame = CGRect(x:0,y:0,width:100,height:200)
+        self.view.addSubview(card)
+        
+        // pan gesture
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(cardDragged))
+        card.addGestureRecognizer(panGesture)
+        card.isUserInteractionEnabled = true
+        
+        var origPos = card.center
+        card.center = CGPoint(x: self.view.frame.width / 2, y: -card.frame.height)
+        
+        snap = UISnapBehavior(item: card, snapTo: origPos)
+        snap.damping = 0.3
+        animator.addBehavior(snap)
+        
+//        }
         
         print("view loading")
     }
@@ -70,13 +75,13 @@ class ViewController: UIViewController {
     }
  **/
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesEnded")
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesCancelled")
-    }
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        print("touchesEnded")
+//    }
+//    
+//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        print("touchesCancelled")
+//    }
     
     /**
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
