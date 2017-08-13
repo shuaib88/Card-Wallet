@@ -36,22 +36,27 @@ class ViewController: UIViewController {
 //            card.isUserInteractionEnabled = true
         
         let card_image = UIImage(named: "credit_card_blue")
-//        let card_image = UIImage(named: "#imageLiteral(resourceName: \"credit_card_green\")")
         let card = UIImageView(image: card_image)
-        card.frame = CGRect(x:0,y:0,width:100,height:200)
+//        card.frame = CGRect(x:0,y:0,width:100,height:200)
+        card.contentMode = UIViewContentMode.scaleAspectFit
+        
+//        var origPos = card.center
+        card.center = CGPoint(x: self.view.frame.width / 2, y: card.frame.height)
+        
         self.view.addSubview(card)
+        // constraints
+//        let margins = self.view.layoutMarginsGuide
+//        card.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+//        card.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
         
         // pan gesture
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(cardDragged))
         card.addGestureRecognizer(panGesture)
         card.isUserInteractionEnabled = true
         
-        var origPos = card.center
-        card.center = CGPoint(x: self.view.frame.width / 2, y: -card.frame.height)
-        
-        snap = UISnapBehavior(item: card, snapTo: origPos)
-        snap.damping = 0.3
-        animator.addBehavior(snap)
+//        snap = UISnapBehavior(item: card, snapTo: origPos)
+//        snap.damping = 0.3
+//        animator.addBehavior(snap)
         
 //        }
         
