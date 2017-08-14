@@ -41,14 +41,55 @@ class ViewController: UIViewController {
         card.contentMode = UIViewContentMode.scaleAspectFit
         
 //        var origPos = card.center
-        card.center = CGPoint(x: self.view.frame.width / 2, y: card.frame.height)
+
         
         self.view.addSubview(card)
-        // constraints
-//        let margins = self.view.layoutMarginsGuide
-//        card.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-//        card.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
         
+        // constraints
+        card.translatesAutoresizingMaskIntoConstraints = false
+        let margins = self.view.layoutMarginsGuide
+        
+        
+        card.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        card.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        
+        
+        
+        let test_square = UIView()
+        test_square.translatesAutoresizingMaskIntoConstraints = false
+        test_square.frame = CGRect(x: view.center.x, y: 0, width: view.frame.width/2, height: 100)
+    
+        test_square.backgroundColor = UIColor.red
+        
+        self.view.addSubview(test_square)
+        
+        
+        let status_bar_height = UIApplication.shared.statusBarFrame.height
+        test_square.topAnchor.constraint(equalTo: margins.topAnchor, constant: status_bar_height + view.layoutMargins.top).isActive = true
+        test_square.widthAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
+        test_square.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        test_square.centerXAnchor.constraint(equalTo: margins.centerXAnchor).isActive = true
+        
+        
+        let green_square = UIView()
+        green_square.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
+        green_square.backgroundColor = UIColor.green
+        green_square.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.view.addSubview(green_square)
+        
+        green_square.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -view.layoutMargins.bottom).isActive = true
+        green_square.widthAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
+        green_square.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        green_square.centerXAnchor.constraint(equalTo: margins.centerXAnchor).isActive = true
+        
+        
+        self.view.layoutIfNeeded()
+        
+        
+        
+        
+//        card.topAnchor.constraint(equalTo: margins.topAnchor, constant: defaultMargin.top ).isActive = true
         // pan gesture
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(cardDragged))
         card.addGestureRecognizer(panGesture)
