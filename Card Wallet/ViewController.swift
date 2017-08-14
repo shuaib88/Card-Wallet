@@ -37,7 +37,6 @@ class ViewController: UIViewController {
         
         let card_image = UIImage(named: "credit_card_blue")
         let card = UIImageView(image: card_image)
-//        card.frame = CGRect(x:0,y:0,width:100,height:200)
         card.contentMode = UIViewContentMode.scaleAspectFit
         
 //        var origPos = card.center
@@ -49,40 +48,15 @@ class ViewController: UIViewController {
         card.translatesAutoresizingMaskIntoConstraints = false
         let margins = self.view.layoutMarginsGuide
         
-        
-        card.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-        card.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-        
-        
-        
-        let test_square = UIView()
-        test_square.translatesAutoresizingMaskIntoConstraints = false
-        test_square.frame = CGRect(x: view.center.x, y: 0, width: view.frame.width/2, height: 100)
-    
-        test_square.backgroundColor = UIColor.red
-        
-        self.view.addSubview(test_square)
-        
-        
         let status_bar_height = UIApplication.shared.statusBarFrame.height
-        test_square.topAnchor.constraint(equalTo: margins.topAnchor, constant: status_bar_height + view.layoutMargins.top).isActive = true
-        test_square.widthAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
-        test_square.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        test_square.centerXAnchor.constraint(equalTo: margins.centerXAnchor).isActive = true
+        let top_margin = view.layoutMargins.top
         
-        
-        let green_square = UIView()
-        green_square.frame = CGRect(x: 0, y: 0, width: 10, height: 10)
-        green_square.backgroundColor = UIColor.green
-        green_square.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.view.addSubview(green_square)
-        
-        green_square.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -view.layoutMargins.bottom).isActive = true
-        green_square.widthAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
-        green_square.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        green_square.centerXAnchor.constraint(equalTo: margins.centerXAnchor).isActive = true
-        
+//        card.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+//        card.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        card.topAnchor.constraint(equalTo: margins.topAnchor, constant: status_bar_height + top_margin).isActive = true
+        card.heightAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
+        card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        card.widthAnchor.constraint(lessThanOrEqualToConstant: view.frame.width - 2*view.layoutMargins.left).isActive = true
         
         self.view.layoutIfNeeded()
         
