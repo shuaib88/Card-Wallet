@@ -51,12 +51,12 @@ class ViewController: UIViewController {
         let status_bar_height = UIApplication.shared.statusBarFrame.height
         let top_margin = view.layoutMargins.top
         
-//        card.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-//        card.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        card.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+        card.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
         card.topAnchor.constraint(equalTo: margins.topAnchor, constant: status_bar_height + top_margin).isActive = true
-        card.heightAnchor.constraint(equalToConstant: view.frame.width/2).isActive = true
-        card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        card.widthAnchor.constraint(lessThanOrEqualToConstant: view.frame.width - 2*view.layoutMargins.left).isActive = true
+        card.heightAnchor.constraint(lessThanOrEqualToConstant: view.frame.width/2).isActive = true
+//        card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//        card.widthAnchor.constraint(lessThanOrEqualToConstant: view.frame.width - 2*view.layoutMargins.left).isActive = true
         
         self.view.layoutIfNeeded()
         
