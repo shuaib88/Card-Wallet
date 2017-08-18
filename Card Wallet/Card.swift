@@ -14,7 +14,8 @@ class Card {
     var back_image: UIImageView
     
     init() {
-        let stock_image = UIImage(named:"stock_credit_card")
+//        let stock_image = UIImage(named:"stock_credit_card")
+        let stock_image = UIImage(named:"credit_card_blue")
         front_image = UIImageView(image: stock_image)
         back_image = UIImageView(image: stock_image)
     }

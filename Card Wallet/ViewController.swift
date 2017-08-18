@@ -11,8 +11,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
-    var cards: [Card]!
+    var cards: [Card] = []
     
     var snap: UISnapBehavior!
     var push: UIPushBehavior!
@@ -20,141 +19,50 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let test_card = Card()
+        
         // Do any additional setup after loading the view, typically from a nib.
         animator = UIDynamicAnimator(referenceView: self.view)
         
         self.view.layoutIfNeeded()
-    
-        // added gesture recognizers
-//        for card_object in cards! {
-//            let card = card_object.front_image
-//            
         
-            // tap behaviors
-//            let tapGesture = UITapGestureRecognizer(target: self, action:#selector(imageTapped))
-//            card.addGestureRecognizer(tapGesture)
-//            card.isUserInteractionEnabled = true
+        let card_1 = Card()
+        let card_2 = Card()
+        let green_card = UIImage(named: "credit_card_green")
+        card_2.front_image = UIImageView(image: green_card)
+        let card_3 = Card()
         
-        let card_image = UIImage(named: "credit_card_blue")
-        let card = UIImageView(image: card_image)
-        card.contentMode = UIViewContentMode.scaleAspectFit
+        cards.append(card_1)
+        cards.append(card_2)
+        cards.append(card_3)
         
-//        var origPos = card.center
-
-        
-        self.view.addSubview(card)
-        
-        // constraints
-        card.translatesAutoresizingMaskIntoConstraints = false
-        let margins = self.view.layoutMarginsGuide
-        
-        let status_bar_height = UIApplication.shared.statusBarFrame.height
         let top_margin = view.layoutMargins.top
+        let status_bar_height = UIApplication.shared.statusBarFrame.height
+        var card_gap = top_margin + status_bar_height
         
-        card.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-        card.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-        card.topAnchor.constraint(equalTo: margins.topAnchor, constant: status_bar_height + top_margin).isActive = true
-        card.heightAnchor.constraint(lessThanOrEqualToConstant: view.frame.width/2).isActive = true
-//        card.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        card.widthAnchor.constraint(lessThanOrEqualToConstant: view.frame.width - 2*view.layoutMargins.left).isActive = true
-        
-        self.view.layoutIfNeeded()
-        
-        
-        
-        
-//        card.topAnchor.constraint(equalTo: margins.topAnchor, constant: defaultMargin.top ).isActive = true
-        // pan gesture
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(cardDragged))
-        card.addGestureRecognizer(panGesture)
-        card.isUserInteractionEnabled = true
-        
-//        snap = UISnapBehavior(item: card, snapTo: origPos)
-//        snap.damping = 0.3
-//        animator.addBehavior(snap)
-        
-//        }
+        for card in cards {
+            
+            let card_front = card.front_image
+
+            self.view.addSubview(card_front)
+            
+            // constraints
+            card_front.translatesAutoresizingMaskIntoConstraints = false
+            let margins = self.view.layoutMarginsGuide
+            
+            card_front.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+            card_front.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+            card_front.topAnchor.constraint(equalTo: margins.topAnchor, constant: card_gap).isActive = true
+            
+            card_gap += 4*top_margin
+            card_front.heightAnchor.constraint(lessThanOrEqualToConstant: view.frame.width/2).isActive = true
+            
+            self.view.layoutIfNeeded()
+        }
         
         print("view loading")
     }
-    
-    func imageTapped(gesture: UIGestureRecognizer) {
-        if let imageView = gesture.view as? UIImageView {
-//            print("Image Tapped")
-        }
-    }
-    
-    func cardDragged(gesture: UIPanGestureRecognizer) {
-        if let cardView = gesture.view as? UIImageView {
-            print("Image dragged")
-        }
-    }
-    /**
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesBegan")
-    }
- **/
-    
-//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        print("touchesEnded")
-//    }
-//    
-//    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        print("touchesCancelled")
-//    }
-    
-    /**
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-            animator.removeAllBehaviors()
-            
-            push = UIPushBehavior(items: Cards, mode: UIPushBehaviorMode.instantaneous)
-            push.setAngle( CGFloat(Double.pi / 2) , magnitude: 5)
-            //            push.magnitude = 0.2
-            //            push.pushDirection = CGVector(dx: 0.0, dy: -1.0)
-            animator.addBehavior(push)
-            
-            /**
-            let card = Cards[1]
-            let location = touch.location(in: self.view)
-            push = UIPushBehavior(items: Cards, mode: UIPushBehaviorMode.continuous)
-            
-            
-            snap = UISnapBehavior(item: card as UIImageView!, snapTo: location)
-            snap.damping = 0.3
-            **/
-
-        }
-    }
- 
- **/
- 
-    /**
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches {
-//            animator.removeAllBehaviors()
-            let card = Cards[1]
-            let location = touch.location(in: self.view)
-            
-            
-//            print(push.items)
-            print ("touches moved")
-            
-      **/
-            
-//            card.center = CGPoint(x: self.view.frame.width / 2, y: location.y)
-            
-            /**
-            snap = UISnapBehavior(item: card as UIImageView!, snapTo: location)
-            snap.damping = 0.3
-            animator.addBehavior(snap)
- 
- 
-        }
-    }
- 
- **/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
